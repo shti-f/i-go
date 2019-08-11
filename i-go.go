@@ -48,8 +48,13 @@ func initBoard(H, W int) (board Board) {
 }
 
 func (board Board) disp() {
+	head := " "
 	for i := range board {
-		var row string
+		head += strconv.Itoa(i)
+	}
+	fmt.Println(head)
+	for i := range board {
+		row := strconv.Itoa(i)
 		for _, v := range board[i] {
 			row += v
 		}
@@ -61,7 +66,7 @@ func (board *Board) turn(h, w int, isPlayer1 bool) {
 	if isPlayer1 {
 		(*board)[h][w] = "o"
 	} else {
-		(*board)[h][w] = "x"
+		(*board)[h][w] = "*"
 	}
 }
 
